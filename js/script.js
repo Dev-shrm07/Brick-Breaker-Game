@@ -194,6 +194,22 @@ document.addEventListener(
     // Cache the client X/Y coordinates
     clientX = e.touches[0].clientX;
     clientY = e.touches[0].clientY;
+  },
+  false
+  );
+  
+ var deltaX, deltaY;
+document.addEventListener(
+  "touchend",
+  function (e) {
+    // Compute the change in X and Y coordinates.
+    // The first touch point in the changedTouches
+    // list is the touch point that was just removed from the surface.
+    deltaX = e.changedTouches[0].clientX - clientX;
+    deltaY = e.changedTouches[0].clientY - clientY;
+
+    clientX += deltaX;
+    clientY += deltaY;
     var gap = (clientX - canvas.offsetLeft) / screen.width;
     var mousrelcanvas = gap / 0.9;
 
@@ -202,6 +218,8 @@ document.addEventListener(
     if (mouseX > 0.09 * length && mouseX < 0.91 * length) {
       paddlex = mouseX - paddlel / 2;
     }
+
+    // Process the data ...
   },
   false
 );
