@@ -185,3 +185,23 @@ function begin(){
     return window.close();
   }
 }
+
+var clientX;
+var clientY;
+document.addEventListener(
+  "touchstart",
+  function (e) {
+    // Cache the client X/Y coordinates
+    clientX = e.touches[0].clientX;
+    clientY = e.touches[0].clientY;
+    var gap = (clientX - canvas.offsetLeft) / screen.width;
+    var mousrelcanvas = gap / 0.9;
+
+    var mouseX = mousrelcanvas * length;
+
+    if (mouseX > 0.09 * length && mouseX < 0.91 * length) {
+      paddlex = mouseX - paddlel / 2;
+    }
+  },
+  false
+);
