@@ -215,7 +215,7 @@ document.addEventListener(
 
     var mouseX = mousrelcanvas * length;
 
-    if (mouseX > 0.09 * length && mouseX < 0.91 * length) {
+    if (mouseX > 0 && mouseX < length) {
       paddlex = mouseX - paddlel / 2;
     }
 
@@ -240,7 +240,7 @@ document.addEventListener(
 
     var mouseX = mousrelcanvas * length;
 
-    if (mouseX > 0.09 * length && mouseX < 0.91 * length) {
+    if (mouseX > 0 && mouseX < length) {
       paddlex = mouseX - paddlel / 2;
     }
 
